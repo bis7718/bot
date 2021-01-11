@@ -1,0 +1,7 @@
+.login_form .trFont {
+  font-size: 13px /*強制設定字型大小 James 2013/11/29*/
+}
+
+.textAlignLeft {
+  text-align: left
+}
