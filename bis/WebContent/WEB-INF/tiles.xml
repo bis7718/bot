@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="blankFileLayout" template="/layouts/blankfile.jsp">
+	</definition>
+	<definition name="blankLogLayout" template="/layouts/blanklog.jsp">
+	</definition>
+	
+	<definition name="blankLayout" template="/layouts/blank.jsp">
+        <put-attribute name="head" value="BIS IFRS"/>
+		<put-attribute name="footer" value="/footer.jsp" />
+    </definition>
+	
+	<definition name="blankMenuLayout" template="/layouts/blankmenu.jsp">
+        <put-attribute name="head" value="BIS IFRS"/>
+		<put-attribute name="menu" value="/menu.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+    </definition>
+	
+	<definition name="loginpage" extends="blankLayout">  
+        <put-attribute name="title" value="BIS IFRS - login"/>
+		<put-attribute name="main" value="/login.jsp" />       
+	</definition>
+	
+	<definition name="closepage" extends="blankFileLayout">  
+		<put-attribute name="main" value="/error.html" />       
+	</definition>
+	
+	<definition name="errorcodepage" extends="blankFileLayout">  
+		<put-attribute name="main" value="/errorcode.jsp" />       
+	</definition>
+	
+	<definition name="baseLayout" template="/layouts/base.jsp">
+        <put-attribute name="head" value="BIS IFRS"/>
+		<put-attribute name="menu" value="/menu.jsp" />
+		<put-attribute name="left" value="/left.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+    </definition>
+	
+	<definition name="batchexec" extends="baseLayout">  
+		<put-attribute name="title" value="BIS IFRS - batchexec"/>     
+	</definition>
+	
+	<definition name="batchmgmt_op" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/batchmgmt/op_main.jsp" />       
+	</definition>
+	<definition name="batchmgmt_stop" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/batchmgmt/stop_main.jsp" />       
+	</definition>
+	<definition name="batchmgmt_sessionlist" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/batchmgmt/sessionlist_main.jsp" />       
+	</definition>
+	<definition name="batchmgmt_sessionall" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/batchmgmt/sessionall_main.jsp" />       
+	</definition>
+	<definition name="batchmgmt_sessionjoblist" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/batchmgmt/sessionjoblist_main.jsp" />       
+	</definition>
+	<definition name="batchmgmt_sessionloglist" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/batchmgmt/sessionloglist_main.jsp" />       
+	</definition>
+	<definition name="batchmgmt_viewlog" extends="blankFileLayout">  
+        <put-attribute name="main" value="/public/batchexec/batchmgmt/viewlog_main.jsp" />       
+	</definition>
+	<definition name="batchmgmt_viewbad" extends="blankFileLayout">  
+        <put-attribute name="main" value="/public/batchexec/batchmgmt/viewbad_main.jsp" />       
+	</definition>
+	<definition name="batchmgmt_sessionall" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/batchmgmt/sessionall_main.jsp" />       
+	</definition>
+	
+	<definition name="jobmgmt_list" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/jobmgmt/list_main.jsp" />       
+	</definition>
+	<definition name="jobmgmt_input" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/jobmgmt/input_main.jsp" />       
+	</definition>
+	<definition name="jobmgmt_order" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/jobmgmt/order_main.jsp" />       
+	</definition>
+	
+	<definition name="batch_filemgmt_result" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/filemgmt/result_main.jsp" />       
+	</definition>
+	<definition name="batch_filemgmt_log" extends="batchexec">  
+        <put-attribute name="main" value="/public/batchexec/filemgmt/log_main.jsp" />       
+	</definition>
+	<definition name="batch_filemgmt_tarlist" extends="blankFileLayout">  
+        <put-attribute name="main" value="/public/batchexec/filemgmt/tarlist_main.jsp" />       
+	</definition>
+	
+	<definition name="fileupload" extends="baseLayout">  
+		<put-attribute name="title" value="BIS IFRS - fileupload"/>     
+	</definition>
+	
+	<definition name="filemgmt_upload" extends="fileupload">  
+        <put-attribute name="main" value="/public/fileupload/filemgmt/upload_main.jsp" />       
+	</definition>
+	<definition name="filemgmt_uploadlist" extends="fileupload">  
+        <put-attribute name="main" value="/public/fileupload/filemgmt/uploadlist_main.jsp" />       
+	</definition>
+	<definition name="filemgmt_sysupload" extends="fileupload">  
+        <put-attribute name="main" value="/public/fileupload/filemgmt/sysupload_main.jsp" />       
+	</definition>
+	
+	<definition name="filequery_arrivelist" extends="fileupload">  
+        <put-attribute name="main" value="/public/fileupload/filequery/arrivelist_main.jsp" />       
+	</definition>
+	<definition name="filequery_inputlist" extends="fileupload">  
+        <put-attribute name="main" value="/public/fileupload/filequery/inputlist_main.jsp" />       
+	</definition>
+	<definition name="filequery_fixlist" extends="fileupload">  
+        <put-attribute name="main" value="/public/fileupload/filequery/fixlist_main.jsp" />       
+	</definition>
+	<definition name="filequery_risklist" extends="fileupload">  
+        <put-attribute name="main" value="/public/fileupload/filequery/risklist_main.jsp" />       
+	</definition>
+	<definition name="filequery_archive" extends="fileupload">  
+        <put-attribute name="main" value="/public/fileupload/filequery/archive_main.jsp" />       
+	</definition>
+	<definition name="filequery_archivelist" extends="blankFileLayout">  
+        <put-attribute name="main" value="/public/fileupload/filequery/archivelist_main.jsp" />       
+	</definition>
+	<definition name="filequery_show" extends="blankFileLayout">  
+        <put-attribute name="main" value="/public/fileupload/filequery/show_main.jsp" />       
+	</definition>
+	
+	<definition name="filelimit_list" extends="fileupload">  
+        <put-attribute name="main" value="/public/fileupload/filelimit/list_main.jsp" />       
+	</definition>
+	<definition name="filelimit_apply" extends="fileupload">  
+        <put-attribute name="main" value="/public/fileupload/filelimit/apply_main.jsp" />       
+	</definition>
+	
+	<definition name="welcome" extends="blankMenuLayout">  
+		<put-attribute name="title" value="BIS IFRS - welcome"/>
+        <put-attribute name="main" value="/welcome.jsp" />       
+	</definition>
+	
+	<definition name="rptview_list" extends="blankMenuLayout">  
+		<put-attribute name="title" value="BIS IFRS - rptview"/>
+        <put-attribute name="main" value="/public/rptview/main.jsp" />       
+	</definition>
+	
+	<definition name="sysmgmt" extends="baseLayout">  
+		<put-attribute name="title" value="BIS IFRS - sysmgmt"/>   
+	</definition>
+	
+	<definition name="auditlog_op" extends="sysmgmt">  
+        <put-attribute name="main" value="/public/sysmgmt/auditlog/op_main.jsp" />       
+	</definition>
+	<definition name="auditlog_batchop" extends="sysmgmt">  
+        <put-attribute name="main" value="/public/sysmgmt/auditlog/batchop_main.jsp" />       
+	</definition>
+	<definition name="auditlog_query" extends="blankLogLayout">  
+        <put-attribute name="main" value="/public/sysmgmt/auditlog/query_main.jsp" />       
+	</definition>
+	<definition name="auditlog_batchquery" extends="blankLogLayout">  
+        <put-attribute name="main" value="/public/sysmgmt/auditlog/batchquery_main.jsp" />       
+	</definition>
+	
+	<definition name="usrmgmt_list" extends="sysmgmt">  
+        <put-attribute name="main" value="/public/sysmgmt/usrmgmt/list_main.jsp" />       
+	</definition>
+	<definition name="usrmgmt_list_sub" extends="sysmgmt">  
+        <put-attribute name="main" value="/public/sysmgmt/usrmgmt/list_sub_main.jsp" />       
+	</definition>
+	<definition name="usrmgmt_input" extends="sysmgmt">  
+        <put-attribute name="main" value="/public/sysmgmt/usrmgmt/input_main.jsp" />       
+	</definition>
+	
+	<definition name="groupmgmt_list" extends="sysmgmt">  
+        <put-attribute name="main" value="/public/sysmgmt/groupmgmt/list_main.jsp" />       
+	</definition>
+	<definition name="groupmgmt_list_sub" extends="sysmgmt">  
+        <put-attribute name="main" value="/public/sysmgmt/groupmgmt/list_sub_main.jsp" />       
+	</definition>
+	<definition name="groupmgmt_input" extends="sysmgmt">  
+        <put-attribute name="main" value="/public/sysmgmt/groupmgmt/input_main.jsp" />       
+	</definition>
+	
+	<definition name="deptmgmt_list" extends="baseLayout">  
+		<put-attribute name="title" value="BIS IFRS - deptmgmt"/>
+        <put-attribute name="main" value="/public/deptmgmt/list_main.jsp" />       
+	</definition>
+	<definition name="deptmgmt_input" extends="baseLayout">  
+		<put-attribute name="title" value="BIS IFRS - deptmgmt"/>
+        <put-attribute name="main" value="/public/deptmgmt/input_main.jsp" />       
+	</definition>
+	
+	<definition name="aprvmgmt" extends="baseLayout">  
+		<put-attribute name="title" value="BIS IFRS - aprvmgmt"/>   	
+	</definition>
+	
+	<definition name="actaprv_log" extends="aprvmgmt">  
+        <put-attribute name="main" value="/public/aprvmgmt/actaprv/log_main.jsp" />       
+	</definition>
+	<definition name="actaprv_confirm" extends="aprvmgmt">  
+        <put-attribute name="main" value="/public/aprvmgmt/actaprv/confirm_main.jsp" />       
+	</definition>
+	
+	<definition name="fileupaprv_log" extends="aprvmgmt">  
+        <put-attribute name="main" value="/public/aprvmgmt/fileupaprv/log_main.jsp" />       
+	</definition>
+	<definition name="fileupaprv_confirm" extends="aprvmgmt">  
+        <put-attribute name="main" value="/public/aprvmgmt/fileupaprv/confirm_main.jsp" />       
+	</definition>
+	
+	<definition name="sysfileupaprv_log" extends="aprvmgmt">  
+        <put-attribute name="main" value="/public/aprvmgmt/sysfileupaprv/log_main.jsp" />       
+	</definition>
+	<definition name="sysfileupaprv_confirm" extends="aprvmgmt">  
+        <put-attribute name="main" value="/public/aprvmgmt/sysfileupaprv/confirm_main.jsp" />       
+	</definition>
+	
+</tiles-definitions>

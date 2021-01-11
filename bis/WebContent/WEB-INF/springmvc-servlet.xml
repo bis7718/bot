@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx" 
+  xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+  http://www.springframework.org/schema/tx 
+  http://www.springframework.org/schema/tx/spring-tx.xsd
+  http://www.springframework.org/schema/mvc
+  http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">    
+
+	<!-- Enable Annotation (@Controller, @RequestMapping...) -->
+    <mvc:annotation-driven/>
+    
+    <!-- It register the beans in context and scan the annotations inside beans and activate them -->
+	<context:component-scan
+		base-package= "com.bot.bis.service,com.bot.bis.dao,com.bot.bis.controller"/>
+		
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- 配置國際化資原始檔 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="i18n"></property>	
+	</bean>
+	
+	<!-- 配置直接轉發的頁面 -->
+	<!-- 可以直接相應轉發的頁面, 而無需再經過 Handler 的方法.  -->
+	<!-- <mvc:view-controller path="/WEB-INF/views" view-name="login"/> -->
+    
+    <!-- The application context definition for the DispatcherServlet -->
+    <!-- Maps the request through to a concrete controller instance -->
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>
+            /login/**=loginController
+            </value>
+        </property>
+    </bean>
+
+    <!-- GwtRpcController wraps our service in order to decode the incoming -->
+    <!-- request then delegates processing of the call to the POJO service -->
+    <!-- and then encodes the return value forwarding the response. -->
+    <bean id="loginController" class="com.bot.bis.controller.LoginController"/>
+</beans>

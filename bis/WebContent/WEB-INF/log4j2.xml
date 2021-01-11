@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN"> 
+	<properties>
+		<property name="LOG_HOME">C:/Users/Anthony.Yin/Desktop/Temp/001 JOB/001 EY/002 SAP PI/005 Customer/Bank of Taiwan/log</property>
+		<property name="FILE_NAME">log4j2</property>
+	</properties>
+	<Appenders>  
+		<Console name="Console" target="SYSTEM_OUT">  
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />  
+		</Console>
+		<RollingRandomAccessFile name="RollingRandomAccessFile" fileName=
+			"${LOG_HOME}/${FILE_NAME}.log" filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd HH-mm}-%i.log">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+		<Policies>
+			<TimeBasedTriggeringPolicy interval="1"/>
+			<SizeBasedTriggeringPolicy size="10 MB"/>
+		</Policies>
+		<DefaultRolloverStrategy max="20"/>
+		</RollingRandomAccessFile>
+		<Async name="AsyncAppender">
+			<AppenderRef ref="RollingRandomAccessFile"/>
+		</Async>
+	</Appenders>  
+	<Loggers>  
+		<!-- Level : info, debug, warning...-->
+		<Root level="info">  
+			<AppenderRef ref="Console" />  
+			<AppenderRef ref="AsyncAppender" />  
+		</Root> 
+	</Loggers> 
+</Configuration>

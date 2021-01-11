@@ -1,0 +1,9 @@
+.upload_table {width: 95%; font-size: 15px; margin: 1em auto; padding: 1em; border:1px solid #CCC}
+.upload_table .left {text-align:right; font-weight: bold}
+.upload_table .right {text-align:left}
+.approve_table .width200 {
+  width: 200px;
+}
+.approve_table thead tr th {
+  font-size: 12px;
+}
