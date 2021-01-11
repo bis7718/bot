@@ -1,6 +1,7 @@
 <%@page pageEncoding="UTF-8"%>
 
-<form action="login/loginbypwd" id="signin_f" method="post" autocomplete="off">
+<p> message : ${message} </p>
+<form action="login/loginbypwd" id="signin_f" method="post">
 <table style="width:99%" summary="login form">
   <thead>
     <tr class="trFont"><th colspan="2">使用者登入</th></tr>
@@ -23,4 +24,5 @@
   </tbody>
 </table>
 </form>
-<div>message : ${message}</div>
+
+</div>

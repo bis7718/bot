@@ -1,5 +1,5 @@
 <%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+<%@page pageEncoding="UTF-8"%>	  
 	   
 <html>
 
@@ -23,6 +23,7 @@
 
 <body onload="showMessage();">
   <div id="message" style="display:none"><s:property value="message"/></div>
+  <!-- This file lives in public/404.html -->
   <div class="dialog">
   <h1>The resource you were looking for doesn't exist.</h1>
     <p>資源不存在</p>

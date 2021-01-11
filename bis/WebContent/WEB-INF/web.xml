@@ -10,32 +10,6 @@
             /WEB-INF/applicationContext.xml
 		</param-value>
 	</context-param>
-	
-		<servlet>
-		<servlet-name>dwr-invoker</servlet-name>
-
-		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
-		<init-param>
-			<param-name>debug</param-name>
-			<param-value>true</param-value>
-		</init-param>
-		<init-param>
-			<param-name>crossDomainSessionSecurity</param-name>
-			<param-value>false</param-value>
-		</init-param>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>dwr-invoker</servlet-name>
-		<url-pattern>/dwr/*</url-pattern>
-	</servlet-mapping>
-	
-	<context-param>
-       <param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
-       <param-value>
-			/WEB-INF/tiles-defs.xml,/WEB-INF/tiles.xml
-       </param-value>
-    </context-param>
 
   	<context-param>  
 	<param-name>log4jConfiguration</param-name>  
@@ -51,9 +25,6 @@
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
-	<listener>
-        <listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
-    </listener>
 	
 	<!-- LOG4J2 LISTENER -->
 	<listener>  

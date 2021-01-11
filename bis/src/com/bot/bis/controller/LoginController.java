@@ -16,7 +16,7 @@ import com.bot.bis.service.LoginService;
 @Controller
 @RequestMapping(value = "/login")
 public class LoginController{
-
+	
 	final Logger logger = LogManager.getLogger(this);
 			
 	private LoginService loginService;

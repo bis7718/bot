@@ -19,7 +19,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bot.bis.model.ActionApproves;
@@ -35,7 +34,7 @@ import com.bot.bis.utils.SessionConstants;
 /**From Original BaseAction.java and BotActionSupport**/
 @EnableTransactionManagement
 public abstract class AbstractDao<PK extends Serializable, T> {
-
+     
 	//Log Factory	
 	final Logger logger = LogManager.getLogger(this);
 	
