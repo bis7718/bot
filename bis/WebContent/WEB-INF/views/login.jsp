@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-
-
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="login_form">
 	<form action="login/loginbypwd" id="signin_f" method="post"
 		autocomplete="off">
@@ -29,4 +28,16 @@
 			</tbody>
 		</table>
 	</form>
+	<div id="message" style="display: block">
+		<c:choose>
+			<c:when test='%{${message}.equals("")}'>
+                ${message}
+            </c:when>
+			<c:when test='%{${session.message}.equals("")}'>
+                ${session.message}
+            </c:when>
+			<c:otherwise>
+			</c:otherwise>
+		</c:choose>
+	</div>
 </div>

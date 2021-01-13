@@ -97,8 +97,7 @@ public class LoginServiceImpl implements LoginService {
   public String logout(){
 	gSession.remove(SessionConstants.USER);
 	gSession.remove(SessionConstants.MESSAGE);
-		
-	//setMessage("已登出");
+
 	logger.info("已登出");
 	return "SUCCESS";
   }
@@ -107,6 +106,7 @@ public class LoginServiceImpl implements LoginService {
   public void setSession(Map<String, Users> pSession) {
 	this.gSession = pSession;	
   }
+ 
 	
   public UsersServiceInterface getUsersService() {
 	return gUsersService;

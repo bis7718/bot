@@ -15,7 +15,7 @@
 	
 	<definition name="blankMenuLayout" template="/layouts/blankmenu.jsp">
         <put-attribute name="head" value="BIS IFRS"/>
-		<put-attribute name="menu" value="/menu.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
     </definition>
 	
@@ -25,17 +25,17 @@
 	</definition>
 	
 	<definition name="closepage" extends="blankFileLayout">  
-		<put-attribute name="main" value="/error.html" />       
+		<put-attribute name="main" value="/WEB-INF/views/error.html" />       
 	</definition>
 	
 	<definition name="errorcodepage" extends="blankFileLayout">  
-		<put-attribute name="main" value="/errorcode.jsp" />       
+		<put-attribute name="main" value="/WEB-INF/views/errorcode.jsp" />       
 	</definition>
 	
 	<definition name="baseLayout" template="/layouts/base.jsp">
         <put-attribute name="head" value="BIS IFRS"/>
-		<put-attribute name="menu" value="/menu.jsp" />
-		<put-attribute name="left" value="/left.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
+		<put-attribute name="left" value="/WEB-INF/views/left.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
     </definition>
 	
@@ -136,7 +136,7 @@
 	
 	<definition name="welcome" extends="blankMenuLayout">  
 		<put-attribute name="title" value="BIS IFRS - welcome"/>
-        <put-attribute name="main" value="/welcome.jsp" />       
+        <put-attribute name="main" value="/WEB-INF/views/welcome.jsp" />       
 	</definition>
 	
 	<definition name="rptview_list" extends="blankMenuLayout">  
