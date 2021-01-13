@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         version="2.5"
-         xmlns="http://java.sun.com/xml/ns/javaee">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
 	<display-name>bis_ifrs</display-name>
 	
 	<context-param>
-		<param-name>org.apache.tiles.CONTAINER_FACTORY</param-name>
-		<param-value>org.apache.struts2.tiles.StrutsTilesContainerFactory</param-value>
-	</context-param> 
-	
-	<context-param>
-       <param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
-       <param-value>
+		<param-name>org.springframework.web.servlet.view.tiles3.TilesConfigurer</param-name>
+		<param-value>
 			/WEB-INF/tiles-defs.xml,/WEB-INF/tiles.xml
        </param-value>
-    </context-param>
-    
+	</context-param>
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -24,13 +18,13 @@
 		</param-value>
 	</context-param>
 
-  	<context-param>  
-	<param-name>log4jConfiguration</param-name>  
+	<context-param>
+		<param-name>log4jConfiguration</param-name>
 		<param-value>
 			/WEB-INF/log4j2.xml
-		</param-value>  
-	</context-param>  
-	
+		</param-value>
+	</context-param>
+
 	<!-- SPRING FRAMEWORK LISTENER -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -38,37 +32,41 @@
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
-	
-	<!-- LOG4J2 LISTENER -->
-	<listener>  
-		<listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>  
+	<listener>
+		<listener-class>org.apache.tiles.web.startup.simple.SimpleTilesListener</listener-class>
 	</listener>
-	
+
+
+	<!-- LOG4J2 LISTENER -->
+	<listener>
+		<listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
+	</listener>
+
 	<!-- SERVLET -->
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
-			<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>			
-			<load-on-startup>1</load-on-startup>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<session-config>
 		<session-timeout>360</session-timeout>
 	</session-config>
-	
-	<!-- DEFAULT PAGE-->
+
+	<!-- DEFAULT PAGE -->
 	<welcome-file-list>
 		<welcome-file>
-			/WEB-INF/views/login.jsp
+			/WEB-INF/views/login_m.jsp
 		</welcome-file>
 	</welcome-file-list>
-	
-	<!--ERROR PAGE to 404.jsp-->
-	<error-page> 
+
+	<!--ERROR PAGE to 404.jsp -->
+	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/views/404.jsp</location>
 	</error-page>

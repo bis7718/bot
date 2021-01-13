@@ -46,6 +46,15 @@
             </value>
         </property>
     </bean>
+    
+    <!-- springframework tiles3 -->
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles.xml</value>
+            </list>
+        </property>
+    </bean>
 
     <!-- GwtRpcController wraps our service in order to decode the incoming -->
     <!-- request then delegates processing of the call to the POJO service -->

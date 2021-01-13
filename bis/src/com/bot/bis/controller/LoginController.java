@@ -37,7 +37,7 @@ public class LoginController{
 		logger.info("vResult :" + vResult);
 		pModel.addAttribute("message",vResult);
 		
-		return "login";
+		return "welcome";
 	}
 	
 	@RequestMapping(value = "/sso", method = RequestMethod.GET)
