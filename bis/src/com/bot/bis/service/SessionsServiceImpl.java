@@ -6,8 +6,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bot.bis.dao.SessionsDao;
+import com.bot.bis.daoInter.SessionsDao;
 import com.bot.bis.model.Sessions;
+import com.bot.bis.serviceInter.DataAccessService;
 
 @SuppressWarnings(value={"rawtypes"})
 @Service
@@ -108,7 +109,7 @@ public class SessionsServiceImpl implements DataAccessService {
 	}
 
 	@Override
-	public void insertAuditLogs(String pAction, String pParam, String pStatus, String pSqlCmd, String pAcct,
+	public void insertAuditLogs(String pAction, String pController, String pParam, String pStatus, String pSqlCmd, String pAcct,
 			String pIp) {
 		// TODO Auto-generated method stub
 		
@@ -118,5 +119,11 @@ public class SessionsServiceImpl implements DataAccessService {
 	public String insertActionApproves(String pCheckType, String pParams) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void insertAuditLogs(String pAction, String pController, String pParam, String pStatus, String pSqlCmd) {
+		// TODO Auto-generated method stub
+		
 	}
 }

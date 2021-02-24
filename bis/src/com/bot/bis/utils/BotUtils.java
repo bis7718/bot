@@ -9,4 +9,19 @@ public class BotUtils {
 		
 		return vResult;
 	}
+	
+	public static String findBisHome() {
+//		Context ctx;
+//		String bisHome = null;
+//		try {
+//			ctx = new InitialContext();
+//			bisHome = (String)ctx.lookup("java:comp/env/BIS_HOME");
+//			logger.fatal(Utility.filter("bisHome：" + bisHome));
+//		} catch (NamingException e) {
+//			bisHome = "";
+//			logger.fatal("findBisHome error");
+//		}  
+
+		return "C:/Users/Administrator/Desktop/temp";
+	}
 }

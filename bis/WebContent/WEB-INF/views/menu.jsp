@@ -1,10 +1,14 @@
-<%@page pageEncoding="UTF-8"%>
-	
-	<!--  <s:iterator value="#session.user.menusList" status="status">
-		<s:if test='link != ""'>
-			<a href='<s:property value="link"/>'><s:property value="name"/></a>|
-		</s:if>
-		<s:else>
-			<s:property value="name"/>|
-		</s:else>
-	</s:iterator>-->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:forEach items="${user.menusList}" var="item">
+	<c:choose>
+		<c:when test='%{${item.link}.equals("")}'>
+                ${item.name}|
+            </c:when>
+		<c:otherwise>
+			<a href='${item.link}'>${item.name}</a>|
+            </c:otherwise>
+	</c:choose>
+</c:forEach>

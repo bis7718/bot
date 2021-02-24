@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.stereotype.Repository;
 
 import com.bot.bis.dao.AbstractDao;
-import com.bot.bis.dao.FunctionsDao;
+import com.bot.bis.daoInter.FunctionsDao;
 import com.bot.bis.model.Functions;
 
 @Repository

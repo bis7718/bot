@@ -5,8 +5,8 @@ li {margin: 0; padding: 0.5em;/*  font-size:15px */}
 .container {width:1000px; margin: 0 auto; position: relative}
 /* .wrapper {position:relative; min-height:200px} */
 .main {margin: 1em auto; width:950px }
-.right_panel {width:800px; margin-left: 150px; padding: 1em 25px }
-.sidebar{width: 150px; float:left}
+.right_panel {width:800px; margin-left: 400px; padding: 1em 25px }
+.sidebar{width: 150px; float:left; margin-left: 250px}
 .pagination {margin: 1em 0}
 .header {height:95px; background: none repeat scroll 0 0 MediumVioletRed; position:relative}
 .header h1 {color: #FFF; font-size: xx-large; padding: 0.5em 0; margin: 0 1em; text-align: left}

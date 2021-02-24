@@ -1,5 +1,6 @@
 package com.bot.bis.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.List;
@@ -17,8 +18,12 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 @Entity
-public class Departments {
+public class Departments implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5735659120009771482L;
 	private String code;
 	private String name;
 	private Timestamp created_at;

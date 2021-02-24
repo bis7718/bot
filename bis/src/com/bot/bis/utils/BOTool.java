@@ -29,11 +29,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-/**
- * @author JamesTzeng
- *
- */
-
 @SuppressWarnings(value={"unused", "unchecked", "rawtypes"})
 public class BOTool {
 	protected static Logger logger = LogManager.getLogger(BOTool.class);

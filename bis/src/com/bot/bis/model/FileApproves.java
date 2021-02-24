@@ -1,5 +1,6 @@
 package com.bot.bis.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.CascadeType;
@@ -13,7 +14,12 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "File_Approves") 
-public class FileApproves {
+public class FileApproves implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1008115582251683677L;
+
 	@Id //@GeneratedValue
 	private Long id;      
 	

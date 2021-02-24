@@ -1,7 +1,6 @@
 <%@page pageEncoding="UTF-8"%>
 
 	<div id="content_wraps">
-	<div id="loading_bar" style="margin: 1em auto;text-align: center;"><img alt="Loading_bar" src="/nova/images/loading_bar.gif"></div>
 	<div id="select_div">
 	
 	<form action="/nova/batchexec/filemgmt/tarlist.action" method="post" target="_blank">

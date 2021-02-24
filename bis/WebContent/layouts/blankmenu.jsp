@@ -18,20 +18,19 @@
 			</h1>
 			<div class="menu_bar">
 				<div style="float: right">
-					Hi, ${session.user.name} | <a href="/nova/logout.action">登出</a>
+					Hi, ${user.name} | <a href="..//login/logout">登出</a>
 				</div>
 				<tiles:insertAttribute name="menu" />
 			</div>
 
 		</div>
 	</div>
-
-
+	
 	<div class="main">
-		<div id="message" style="display: none">${message}</div>
-		<div id="methodInvoked" style="display: none">${session.user.methodInvoke}</div>
-		<tiles:insertAttribute name="main" />
-	</div>
+			<div id="message" style="display:none">${message}</div>
+			<div id="methodInvoked" style="display:none">${user.methodInvoke}</div>
+			<tiles:insertAttribute name="main"/>
+		</div>
 
 	<div class="footer">
 		<tiles:insertAttribute name="footer" />

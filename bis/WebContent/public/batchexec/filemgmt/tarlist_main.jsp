@@ -1,8 +1,10 @@
 <%@page pageEncoding="UTF-8"%>
-	<s:set name="sessionIdSelect" value="sessionIdSelect"/>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 	<div id="content_wraps">
 		<div style="text-align: left">
-		<h1>總共<s:property value="fileInfoList.size()" />個檔案(<s:property value="filePath" />)</h1>
+		<h1>總共${fn:length(fileInfoList)}個檔案()</h1>
 	</div>
 
     <table class="data_table">

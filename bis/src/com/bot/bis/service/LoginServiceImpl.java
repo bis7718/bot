@@ -15,7 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bot.bis.model.Functions;
 import com.bot.bis.model.Users;
-import com.bot.bis.service.DataAccessService;
+import com.bot.bis.serviceInter.DataAccessService;
+import com.bot.bis.serviceInter.LoginService;
+import com.bot.bis.serviceInter.UsersService;
 import com.bot.bis.utils.CommonConstants;
 import com.bot.bis.utils.SessionConstants;
 
@@ -29,7 +31,7 @@ public class LoginServiceImpl implements LoginService {
   private String gPassword;
   
   @Autowired
-  private UsersServiceInterface gUsersService;
+  private UsersService gUsersService;
   
   @Qualifier("auditLogsServiceImpl")
   @Autowired
@@ -58,11 +60,12 @@ public class LoginServiceImpl implements LoginService {
 	  vInputUser.setPass(pPwd);
 		
 	  Users vUser = (Users) getUsersService().authenticate(vInputUser);
+	  
+	  this.gSession.put("user", vUser);
 				
 	  if ( vUser == null ){
-		  logger.info("查無使用者");
 		  /* User not valid, return to input page. */
-		  gAuditLogsService.insertAuditLogs("登入", null, "失敗", null, pAcct, vIp);//2014.5.30
+		  gAuditLogsService.insertAuditLogs("登入", this.getClass().getSimpleName(),null, "查無使用者", null, pAcct, vIp);//2014.5.30
 		  
 		  return CommonConstants.FAILED_LOGIN;
 	  }else{
@@ -73,19 +76,17 @@ public class LoginServiceImpl implements LoginService {
 		vUser.createMenusList();
 			
 		if(vUser.getMenusList().size() == 0) {
-			//setMessage("使用者未設定權限");
 			logger.info("User:"+pAcct+" doesn't configure authrization.");
 			gSession.put(SessionConstants.USER, vUser);
 			/* User not valid, return to input page. */
-			gAuditLogsService.insertAuditLogs("登入", null, "失敗", null, pAcct, vIp);//2014.5.30
+			gAuditLogsService.insertAuditLogs("登入", this.getClass().getSimpleName(),null, "使用者權限未設定", null, pAcct, vIp);//2014.5.30
 			
 			return CommonConstants.FAILED_AUTHORIZATION;
 		}
 	}
 		
 	  logger.info("Starting login...");
-	  gAuditLogsService.insertAuditLogs("登入", null, "失敗", null, pAcct, vIp);//2014.5.30
-		
+	  gAuditLogsService.insertAuditLogs("登入", this.getClass().getSimpleName(),null, "成功", null, pAcct, vIp);//2014.5.30
 	  return CommonConstants.SUCCESS;
 	
   	}
@@ -93,26 +94,28 @@ public class LoginServiceImpl implements LoginService {
   public String loginbypwd(){
 	  return "SUCCESS";
 	}
+  
+  public Map<String, Users> getSession() {
+	    return this.gSession;
+	}
 	
   public String logout(){
-	gSession.remove(SessionConstants.USER);
-	gSession.remove(SessionConstants.MESSAGE);
-
-	logger.info("已登出");
-	return "SUCCESS";
+	  this.gSession.remove("user");
+	  this.gSession.remove("message");
+	  gAuditLogsService.insertAuditLogs("登出", this.getClass().getSimpleName(),null, "成功", null);//2014.5.30
+	  return "SUCCESS";
   }
 	
 	
   public void setSession(Map<String, Users> pSession) {
 	this.gSession = pSession;	
   }
- 
 	
-  public UsersServiceInterface getUsersService() {
+  public UsersService getUsersService() {
 	return gUsersService;
   }
 
-  public void setUsersService(UsersServiceInterface pUsersService) {
+  public void setUsersService(UsersService pUsersService) {
 	this.gUsersService = pUsersService;
   }
 

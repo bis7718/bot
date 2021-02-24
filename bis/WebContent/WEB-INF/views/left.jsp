@@ -1,21 +1,23 @@
-<%@page pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<s:set name="mainSym" value=""/>
-
-<s:iterator value="#session.user.currentFunctionsList" status="status">
-	<s:set name="tmpSym" value='sym.substring(0,sym.indexOf("_")+2)'/>
-	<s:if test="#tmpSym!=#mainSym">
-		<s:set name="mainSym" value="sym"/>
-		<h3><s:property value="name"/></h3>
-	</s:if>
-	<s:else>
-		<ul>
-			<s:if test="url.indexOf(#session.user.methodInvoke) > 0">
-				[<s:property value="name"/>]
-			</s:if>
-			<s:else>
-				<li><a href='<s:property value="url"/>'><s:property value="name"/></a></li>
-			</s:else>
-		</ul>
-	</s:else>
-</s:iterator>
+<input id="updatesym" type="hidden" value="">
+<c:forEach items="${user.currentFunctionsList}" var="item">
+	<c:set var="tmpSym"
+		value='${fn:substring(item.sym, 0, fn:indexOf(item.sym, "_")+2)}' />
+	<c:if test="${tmpSym == item.sym}">
+		<h3>${item.name}</h3>
+	</c:if>
+	<ul>
+		<c:if test="${tmpSym != item.sym}">
+			<c:if test="${setSym == item.sym}">
+				<li>[${item.name}]</li>
+			</c:if>
+			<c:if test="${setSym != item.sym}">
+				<li><a href="${item.url}">${item.name}</a></li>
+			</c:if>
+		</c:if>
+	</ul>
+</c:forEach>

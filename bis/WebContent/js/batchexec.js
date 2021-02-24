@@ -48,9 +48,7 @@ function rerun_submit() {
 	ct.setValues(yyyy, mm, id, input, ftp, fix);
 	$('#loading_gif1').show();
 	
-	dwr.engine.setAsync(false);//DWREngine.setAsync(false);
 	BatchManagementAction.batchrerun(ct, populateMsg);
-	dwr.engine.setAsync(true);//DWREngine.setAsync(true);
 	//alert('yyyy/mm/dd input, ftp, fix: ' + yyyy + ',' + mm + ',' + dd + ',' + input + ',' + ftp + ',' + fix);
 	$('#loading_gif1').hide();
 }
@@ -65,9 +63,7 @@ function csv_submit() {
 	ct.setValues(yyyy, mm, id);
 	$('#loading_gif2').show();
 	
-	dwr.engine.setAsync(false);//DWREngine.setAsync(false);
 	BatchManagementAction.createcsv(ct, populateMsg);
-	dwr.engine.setAsync(true);//DWREngine.setAsync(true);
 	
 	$('#loading_gif2').hide();
   
@@ -83,9 +79,7 @@ function fixver_submit() {
 	ct.setValues(yyyy, mm, id);
 	$('#loading_gif3').show();
 	
-	dwr.engine.setAsync(false);//DWREngine.setAsync(false);
 	BatchManagementAction.fixversion(ct, populateMsg);
-	dwr.engine.setAsync(true);//DWREngine.setAsync(true);
 
 	$('#loading_gif3').hide();
 }
@@ -102,9 +96,7 @@ function deleteold_submit() {
 	ct.setValues(yyyy, mm, id, input);
 	$('#loading_gif4').show();
 	
-	dwr.engine.setAsync(false);//DWREngine.setAsync(false);
 	BatchManagementAction.deleteversion(ct, populateMsg);
-	dwr.engine.setAsync(true);//DWREngine.setAsync(true);
 
 	$('#loading_gif4').hide();
 }
@@ -118,9 +110,7 @@ function deleteold13M_submit() {
 	ct.setValues(yyyy, mm);
 	$('#loading_gif5').show();
 	
-	dwr.engine.setAsync(false);//DWREngine.setAsync(false);
 	BatchManagementAction.delete13M(ct, populateMsg);
-	dwr.engine.setAsync(true);//DWREngine.setAsync(true);
 
 	$('#loading_gif5').hide();
 }
@@ -599,12 +589,10 @@ function remark_submit() {
 			remarkArray.push($(this).attr("name")+'_'+$(this).val());
 		});
 	
-		dwr.engine.setAsync(false);//DWREngine.setAsync(false);
 		BatchManagementAction.updateremark(remarkArray, listAllSession);
 	
 		$('#sessions_div').show();
 		$('#loading_bar').hide();
-		dwr.engine.setAsync(true);//DWREngine.setAsync(true);
 		alert('儲存完成');
 	}
 	return false;

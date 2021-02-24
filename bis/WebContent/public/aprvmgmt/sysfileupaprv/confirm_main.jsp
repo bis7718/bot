@@ -1,26 +1,47 @@
 <%@page pageEncoding="UTF-8"%>
-<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
-	<div id="content_wraps">
-	<div id="log_div">
-	
-	<display:table name="fileApprovesList"
-				id="row"
-				pagesize="15"
-				requestURI="/nova/aprvmgmt/sysfileupaprv/confirm.action"
-				export="false"
-				class="approve_table">
-		<display:column property="files_name" title="檔案"></display:column>
-		<display:column property="upload_at" title="上傳時間"></display:column>
-		<display:column title="上傳人員"><s:property value="#attr.row.upload_user+' '+#attr.row.upload_name"/></display:column>
-		<display:column title="審核">
-			<div id='act_<s:property value="id"/>'>
-				<a href='/nova/aprvmgmt/sysfileupaprv/approve.action?id=<s:property value="#attr.row.id"/>' onclick="return(confirm('確定執行動作嗎?'))">放行</a> |
-				<a href='/nova/aprvmgmt/sysfileupaprv/reject.action?id=<s:property value="#attr.row.id"/>' onclick="return(confirm('確定執行動作嗎?'))">退件</a>
-            </div>
-			<div id='act_<s:property value="id"/>_loading' style="display: none; text-align:center">
-				<img alt="Loading_s" src="/nova/images/loading_s.gif" /> 處理中...
-			</div>
-		</display:column>
-	</display:table>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+<div id="content_wraps">
+	<div id="log_div" style="text-align: center;">
+		<c:choose>
+			<c:when test='${confirmFlag.sysfileconfirm == "Y"}'>
+				<form action="/bis/aprvmgmt/fileupaprv/log" method="post">
+					全選： <input id="submitall" type="checkbox" value="1"> <input
+						name="commit" type="submit" value="放行"> <br> <br>
+					<table class="data_table">
+						<thead>
+							<tr>
+								<th>勾選</th>
+								<th>名稱</th>
+								<th>檔案</th>
+								<th>上傳時間</th>
+								<th>上傳人員</th>
+								<th>審核</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${fileApprovesList}" var="fileApproves">
+								<c:if
+									test='${fileApproves.action_type == "SYSTEM" && fileApproves.status == "waiting"}'>
+									<tr class="${fileApproves.id}">
+										<td><input id="${fileApproves.id}" type="checkbox"
+											value="1"></td>
+										<td>${fileApproves.uploadFiles.name}</td>
+										<td>${fileApproves.files_name}</td>
+										<td>${fileApproves.upload_at}</td>
+										<td>${fileApproves.upload_user}&ensp;${fileApproves.upload_name}</td>
+										<td></td>
+									</tr>
+								</c:if>
+							</c:forEach>
+						</tbody>
+					</table>
+				</form>
+			</c:when>
+			<c:otherwise>
+				無資料
+			</c:otherwise>
+		</c:choose>
 	</div>
-	</div>
+</div>

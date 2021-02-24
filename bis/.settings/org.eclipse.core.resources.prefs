@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
 encoding//src/com/bot/bis/service/LoginServiceImpl.java=UTF-8
 encoding//src/message.properties=UTF-8
-encoding//src/message_zh_TW.properties=UTF-8
+encoding//src/message_zh_TW.properties=ISO-8859-1
 encoding/<project>=UTF-8

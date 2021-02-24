@@ -1,4 +1,4 @@
-package com.bot.bis.service;
+package com.bot.bis.serviceInter;
 
 import java.io.InputStream;
 

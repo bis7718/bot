@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.stereotype.Repository;
 
 import com.bot.bis.dao.AbstractDao;
-import com.bot.bis.dao.SessionsDao;
+import com.bot.bis.daoInter.SessionsDao;
 import com.bot.bis.model.Functions;
 import com.bot.bis.model.Sessions;
 

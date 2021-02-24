@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bot.bis.dao.AuditLogsDao;
+import com.bot.bis.daoInter.AuditLogsDao;
 import com.bot.bis.model.AuditLogs;
+import com.bot.bis.serviceInter.DataAccessService;
 
 
 @SuppressWarnings(value={"rawtypes"})
@@ -27,8 +28,8 @@ public class AuditLogsServiceImpl implements DataAccessService {
 	}
 
 	@Override
-	public void insertAuditLogs(String pAction, String pParam, String pStatus, String pSqlCmd, String pAcct, String pIp) {
-		gAuditLogsDao.insertAuditLogs(pAction, pParam, pStatus, pSqlCmd, pAcct, pIp);		
+	public void insertAuditLogs(String pAction, String pController, String pParam, String pStatus, String pSqlCmd, String pAcct, String pIp) {
+		gAuditLogsDao.insertAuditLogs(pAction, pController, pParam, pStatus, pSqlCmd, pAcct, pIp);		
 	}
 
 	@Override
@@ -38,7 +39,7 @@ public class AuditLogsServiceImpl implements DataAccessService {
 
 	@Override
 	public Collection list() {
-		return gAuditLogsDao.findByTableName("AuditLogs", "id", "");
+		return gAuditLogsDao.findByTableName("AuditLogs", "id", "desc");
 	}
 
 	@Override
@@ -121,6 +122,11 @@ public class AuditLogsServiceImpl implements DataAccessService {
 	public String insertActionApproves(String pCheckType, String pParams) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void insertAuditLogs(String pAction, String pController, String pParam, String pStatus, String pSqlCmd) {
+		gAuditLogsDao.insertAuditLogs(pAction, pController, pParam, pStatus, pSqlCmd, "USEER", "IP");
 	}
 
 }

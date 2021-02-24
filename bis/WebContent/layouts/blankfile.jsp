@@ -11,7 +11,7 @@
 		<jsp:include page="/layouts/resource_include.jsp"></jsp:include>
 	</head>
 	<body onload="showMessage();">
-		<div id="message" style="display:none"><s:property value="message"/></div>
+		<div id="message" style="display:none">${message}</div>
 		<div class="container">
 			<div class="main">
 				<tiles:insertAttribute name="main"/>

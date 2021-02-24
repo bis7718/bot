@@ -10,9 +10,10 @@ import javax.persistence.criteria.Root;
 import org.springframework.stereotype.Repository;
 
 import com.bot.bis.dao.AbstractDao;
-import com.bot.bis.dao.UsersDao;
+import com.bot.bis.daoInter.UsersDao;
 import com.bot.bis.model.Users;
 
+@SuppressWarnings("rawtypes")
 @Repository
 public class UsersDaoImpl extends AbstractDao<Users, Object> implements UsersDao {
 
@@ -37,7 +38,6 @@ public class UsersDaoImpl extends AbstractDao<Users, Object> implements UsersDao
 	  return super.isExistsByObject(pUsr);
   }
 
-  @SuppressWarnings("rawtypes")
   @Override
   public Collection list(Object pUsr) {
 	  

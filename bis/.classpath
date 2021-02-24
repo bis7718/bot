@@ -8,5 +8,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/git/bot/bis/WebContent/WEB-INF/lib/ganymed-ssh2-build210.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

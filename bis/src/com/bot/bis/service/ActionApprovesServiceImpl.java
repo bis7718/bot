@@ -6,8 +6,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bot.bis.dao.ActionApprovesDao;
+import com.bot.bis.daoInter.ActionApprovesDao;
 import com.bot.bis.model.ActionApproves;
+import com.bot.bis.serviceInter.DataAccessService;
 
 
 @SuppressWarnings(value={"rawtypes"})
@@ -26,7 +27,7 @@ public class ActionApprovesServiceImpl implements DataAccessService {
 
 	@Override
 	public Collection list() {
-		return gActionApprovesDao.findByTableName("ActionApproves", "id", "");
+		return gActionApprovesDao.findByTableName("ActionApproves", "id", "desc");
 	}
 
 	@Override
@@ -112,7 +113,7 @@ public class ActionApprovesServiceImpl implements DataAccessService {
 	}
 
 	@Override
-	public void insertAuditLogs(String pAction, String pParam, String pStatus, String pSqlCmd, String pAcct,
+	public void insertAuditLogs(String pAction, String pController, String pParam, String pStatus, String pSqlCmd, String pAcct,
 			String pIp) {
 		// TODO Auto-generated method stub
 		
@@ -122,6 +123,12 @@ public class ActionApprovesServiceImpl implements DataAccessService {
 	public String insertActionApproves(String pCheckType, String pParams) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void insertAuditLogs(String pAction, String pController, String pParam, String pStatus, String pSqlCmd) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

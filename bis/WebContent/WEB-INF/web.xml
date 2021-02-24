@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
-	<display-name>bis_ifrs</display-name>
+	<display-name>bis</display-name>
 	
 	<context-param>
 		<param-name>org.springframework.web.servlet.view.tiles3.TilesConfigurer</param-name>
@@ -57,13 +57,6 @@
 	<session-config>
 		<session-timeout>360</session-timeout>
 	</session-config>
-
-	<!-- DEFAULT PAGE -->
-	<welcome-file-list>
-		<welcome-file>
-			/WEB-INF/views/login_m.jsp
-		</welcome-file>
-	</welcome-file-list>
 
 	<!--ERROR PAGE to 404.jsp -->
 	<error-page>

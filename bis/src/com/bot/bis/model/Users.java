@@ -26,6 +26,9 @@ import javax.persistence.Transient;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.bot.bis.model.Functions;
+import com.bot.bis.model.Menus;
+
 @Entity
 @Table(name="USERS")
 @SuppressWarnings(value={"unchecked", "serial"})
@@ -175,7 +178,35 @@ public class Users implements Serializable{
 	}
 	public void setAllFunctionsMap(Map<String, Functions> allFunctionsMap) {
 		this.allFunctionsMap = allFunctionsMap;
-	}	
+	}
+//	public List<Functions> getCurrentFunctionsList(String current) {
+//		currentFunctionsList = new ArrayList();
+//		for(int i = 0; i < menusList.size(); i++) {
+//			Menus menuTmp = menusList.get(i);
+//
+//			if("current".equals(menuTmp.getSym()))
+//				currentFunctionsList.addAll(menuTmp.getSubFunctionsList());
+//			
+//		}
+//		
+//		return currentFunctionsList;
+//	}
+//	public void setCurrentFunctionsList(List<Functions> currentFunctionsList) {
+//		this.currentFunctionsList = currentFunctionsList;
+//	}
+	public List<Functions> getCurrentFunctionsList() {		
+		return this.currentFunctionsList;
+	}
+	public void setCurrentFunctionsList(String current) {
+		this.currentFunctionsList = new ArrayList();
+		for(int i = 0; i < menusList.size(); i++) {
+			Menus menuTmp = menusList.get(i);
+
+			if(current.equals(menuTmp.getSym()))
+				this.currentFunctionsList.addAll(menuTmp.getSubFunctionsList());
+			
+		}
+	}
 	public String getMenuSelect() {
 		return menuSelect;
 	}

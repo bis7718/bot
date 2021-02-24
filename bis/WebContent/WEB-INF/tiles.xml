@@ -9,18 +9,18 @@
 	</definition>
 	
 	<definition name="blankLayout" template="/layouts/blank.jsp">
-        <put-attribute name="head" value="BIS IFRS"/>
+        <put-attribute name="head" value="BIS"/>
 		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
     </definition>
 	
 	<definition name="blankMenuLayout" template="/layouts/blankmenu.jsp">
-        <put-attribute name="head" value="BIS IFRS"/>
+        <put-attribute name="head" value="BIS"/>
 		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
     </definition>
 	
 	<definition name="loginpage" extends="blankLayout">  
-        <put-attribute name="title" value="BIS IFRS - login"/>
+        <put-attribute name="title" value="BIS - login"/>
 		<put-attribute name="main" value="/WEB-INF/views/login.jsp" />       
 	</definition>
 	
@@ -33,18 +33,18 @@
 	</definition>
 	
 	<definition name="baseLayout" template="/layouts/base.jsp">
-        <put-attribute name="head" value="BIS IFRS"/>
+        <put-attribute name="head" value="BIS"/>
 		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
 		<put-attribute name="left" value="/WEB-INF/views/left.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
     </definition>
 	
 	<definition name="batchexec" extends="baseLayout">  
-		<put-attribute name="title" value="BIS IFRS - batchexec"/>     
+		<put-attribute name="title" value="BIS - batchexec"/>   
 	</definition>
 	
-	<definition name="batchmgmt_op" extends="batchexec">  
-        <put-attribute name="main" value="/public/batchexec/batchmgmt/op_main.jsp" />       
+	<definition name="batchmgmt_op" extends="batchexec">
+        <put-attribute name="main" value="/public/batchexec/batchmgmt/op_main.jsp" />      
 	</definition>
 	<definition name="batchmgmt_stop" extends="batchexec">  
         <put-attribute name="main" value="/public/batchexec/batchmgmt/stop_main.jsp" />       
@@ -92,7 +92,7 @@
 	</definition>
 	
 	<definition name="fileupload" extends="baseLayout">  
-		<put-attribute name="title" value="BIS IFRS - fileupload"/>     
+		<put-attribute name="title" value="BIS - fileupload"/>     
 	</definition>
 	
 	<definition name="filemgmt_upload" extends="fileupload">  
@@ -135,17 +135,17 @@
 	</definition>
 	
 	<definition name="welcome" extends="blankMenuLayout">  
-		<put-attribute name="title" value="BIS IFRS - welcome"/>
+		<put-attribute name="title" value="BIS - welcome"/>
         <put-attribute name="main" value="/WEB-INF/views/welcome.jsp" />       
 	</definition>
 	
 	<definition name="rptview_list" extends="blankMenuLayout">  
-		<put-attribute name="title" value="BIS IFRS - rptview"/>
+		<put-attribute name="title" value="BIS - rptview"/>
         <put-attribute name="main" value="/public/rptview/main.jsp" />       
 	</definition>
 	
 	<definition name="sysmgmt" extends="baseLayout">  
-		<put-attribute name="title" value="BIS IFRS - sysmgmt"/>   
+		<put-attribute name="title" value="BIS - sysmgmt"/>   
 	</definition>
 	
 	<definition name="auditlog_op" extends="sysmgmt">  
@@ -182,16 +182,16 @@
 	</definition>
 	
 	<definition name="deptmgmt_list" extends="baseLayout">  
-		<put-attribute name="title" value="BIS IFRS - deptmgmt"/>
+		<put-attribute name="title" value="BIS - deptmgmt"/>
         <put-attribute name="main" value="/public/deptmgmt/list_main.jsp" />       
 	</definition>
 	<definition name="deptmgmt_input" extends="baseLayout">  
-		<put-attribute name="title" value="BIS IFRS - deptmgmt"/>
+		<put-attribute name="title" value="BIS - deptmgmt"/>
         <put-attribute name="main" value="/public/deptmgmt/input_main.jsp" />       
 	</definition>
 	
 	<definition name="aprvmgmt" extends="baseLayout">  
-		<put-attribute name="title" value="BIS IFRS - aprvmgmt"/>   	
+		<put-attribute name="title" value="BIS - aprvmgmt"/>   	
 	</definition>
 	
 	<definition name="actaprv_log" extends="aprvmgmt">  

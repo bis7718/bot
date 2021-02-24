@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bot.bis.dao.AbstractDao;
-import com.bot.bis.dao.AuditLogsDao;
+import com.bot.bis.daoInter.AuditLogsDao;
 import com.bot.bis.model.AuditLogs;
 
 @Repository
@@ -19,8 +19,8 @@ public class AuditLogsDaoImpl extends AbstractDao<AuditLogs, Object> implements 
 	}
 
 	@Override
-	public void insertAuditLogs(String pAction, String pParam, String pStatus, String pSqlCmd, String pAcct, String pIp) {
-		super.insertAuditLogs(pAction, pParam, pStatus, pSqlCmd, pAcct, pIp);		
+	public void insertAuditLogs(String pAction, String pController, String pParam, String pStatus, String pSqlCmd, String pAcct, String pIp) {
+		super.insertAuditLogs(pAction, pController, pParam, pStatus, pSqlCmd, pAcct, pIp);		
 	}
 	
 	@Override

@@ -18,11 +18,11 @@
 		}
 		h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
 	</style>
-	<s:include value="/layouts/resource_include.jsp"></s:include>
+	<jsp:include page="/layouts/resource_include.jsp"></jsp:include>
 </head>
 
 <body onload="showMessage();">
-  <div id="message" style="display:none"><s:property value="message"/></div>
+  <div id="message" style="display:none">${message}</div>
   <!-- This file lives in public/404.html -->
   <div class="dialog">
   <h1>The resource you were looking for doesn't exist.</h1>
